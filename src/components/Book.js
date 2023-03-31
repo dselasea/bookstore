@@ -9,10 +9,10 @@ const Book = ({ book }) => (
 );
 
 Book.propTypes = {
-  book: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.number.isRequired,
+  book: PropTypes.shape({
+    title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-  })).isRequired,
+  }).isRequired,
 };
 
 export default Book;
