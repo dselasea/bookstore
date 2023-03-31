@@ -24,7 +24,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Math Magicians <a name="about-project"></a>
+# 📖 Bookstore <a name="about-project"></a>
 
 **Bookstore** is a Single Page Aplication that allows you to add books including book author, title etc. It includes a progress bar that show how much content you've read.
 
