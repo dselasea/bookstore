@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const AddBook = () => (
-  <div>
-    <h2>Add New Book</h2>
-    <form>
-      <input type="text" placeholder="Add Book" />
-      <button type="submit">Add Book</button>
-    </form>
-  </div>
-);
+const AddBook = () => {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+
+  const addBook = () => {
+
+  };
+
+  return (
+    <div>
+      <h2>Add New Book</h2>
+      <form>
+        <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} placeholder="Add Book Title" />
+        <input type="text" onChange={(e) => setAuthor(e.target.value)} value={author} placeholder="Add Book Author" />
+        <button type="submit">Add Book</button>
+      </form>
+    </div>
+  );
+};
 
 export default AddBook;
