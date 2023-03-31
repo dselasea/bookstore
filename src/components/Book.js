@@ -3,7 +3,7 @@ import React from 'react';
 
 const Book = ({ book }) => (
   <div>
-    <h2>{book.title}</h2>
+    <h1>{book.title}</h1>
     <p>{book.author}</p>
   </div>
 );
