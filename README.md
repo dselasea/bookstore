@@ -43,7 +43,6 @@
 - **React Router**
 - **Add Books**
 - **Progress Bar**
-- **React Router**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
