@@ -1,35 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import AddBook from './AddBook';
 
 const Books = () => {
-  const books = [
-    {
-      id: 1,
-      genre: 'Action',
-      title: 'The Hunger Games',
-      author: 'Suzanne Collins',
-      completed: false,
-    },
-    {
-      id: 2,
-      genre: 'Science Fiction',
-      title: 'Dune',
-      author: 'Frank Herbert',
-      completed: false,
-    },
-    {
-      id: 3,
-      genre: 'Economy',
-      title: 'Capital in the Twenty-First Century',
-      author: 'Suzanne Collins',
-      completed: false,
-    },
-  ];
+  const books = useSelector((state) => state.book.books);
   return (
     <div>
       {books.map((book) => (
-        <Book key={book.id} book={book} />
+        <Book key={book.item_id} book={book} />
       ))}
       <AddBook />
     </div>
