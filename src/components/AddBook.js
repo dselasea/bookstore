@@ -12,7 +12,7 @@ const AddBook = () => {
     e.preventDefault();
     if (title && author) {
       dispatch(addBook({
-        id: nanoid(),
+        item_id: nanoid(),
         title,
         author,
       }));
