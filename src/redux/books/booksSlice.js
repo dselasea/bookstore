@@ -12,7 +12,7 @@ export const booksSlice = createSlice({
       state.books.push({
         id: action.payload.id,
         title: action.payload.title,
-        author: action.payload.author
+        author: action.payload.author,
       });
     },
     removeBook: (state, action) => {
