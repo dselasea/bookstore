@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { addBook } from '../redux/books/booksSlice';
+import Button from './Button';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const AddBook = () => {
       <form onSubmit={handleFormSubmit}>
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Add Book Title" />
         <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Add Book Author" />
-        <button type="submit">Add Book</button>
+        <Button />
       </form>
     </div>
   );
