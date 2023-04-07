@@ -1,26 +1,39 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/wrcRoQ7axFGLY3A38Uya/books';
+
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+  try {
+    const response = await axios.get(BASE_URL);
+    return response.data;
+  } catch (err) {
+    return err.message;
+  }
+});
+
+export const postBooks = createAsyncThunk('books/postBooks', async (input) => {
+  try {
+    const response = await axios.post(BASE_URL, input);
+    return response.data;
+  } catch (err) {
+    return err.message;
+  }
+});
+
+export const deleteBooks = createAsyncThunk('books/deleteBooks', async (id) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/${id}`);
+    return response.data;
+  } catch (err) {
+    return err.message;
+  }
+});
 
 const initialState = {
-  books: [
-    {
-      item_id: 'item1',
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item2',
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item3',
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    },
-  ],
+  books: [],
+  status: false,
+  error: null,
 };
 
 export const booksSlice = createSlice({
@@ -32,6 +45,7 @@ export const booksSlice = createSlice({
         item_id: action.payload.item_id,
         title: action.payload.title,
         author: action.payload.author,
+        category: action.payload.category,
       };
       return { ...state, books: [...state.books, newBook] };
     },
@@ -40,6 +54,23 @@ export const booksSlice = createSlice({
       const remove = state.books.filter((book) => book.item_id !== bookId);
       return { ...state, books: remove };
     },
+  },
+  extraReducers(builders) {
+    builders
+      .addCase(fetchBooks.pending, (state) => ({ ...state, status: true }))
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        const data = action.payload;
+        const newBooks = [];
+        for (const id in data) {
+          if (id) {
+            const newData = data[id][0];
+            newData.item_id = id;
+            newBooks.push(newData);
+          }
+        }
+        return { ...state, status: false, books: newBooks };
+      })
+      .addCase(fetchBooks.rejected, (state) => ({ ...state, status: false, error: true }));
   },
 });
 
