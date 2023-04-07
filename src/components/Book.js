@@ -14,6 +14,7 @@ const Book = ({ book }) => {
     <div>
       <h1>{book.title}</h1>
       <p>{book.author}</p>
+      <p>{book.category}</p>
       <button type="button" onClick={() => deleteBook(book.item_id)}>Remove Book</button>
     </div>
   );
@@ -24,6 +25,7 @@ Book.propTypes = {
     item_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };
 

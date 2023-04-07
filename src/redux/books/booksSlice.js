@@ -45,6 +45,7 @@ export const booksSlice = createSlice({
         item_id: action.payload.item_id,
         title: action.payload.title,
         author: action.payload.author,
+        category: action.payload.category,
       };
       return { ...state, books: [...state.books, newBook] };
     },
