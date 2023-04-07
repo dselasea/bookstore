@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Book from './Book';
 import AddBook from './AddBook';
-import { getBooks } from '../redux/books/booksSlice';
+import { fetchBooks } from '../redux/books/booksSlice';
 
 const Books = () => {
   const dispatch = useDispatch();
   const { books, status } = useSelector((state) => state.book);
   useEffect(() => {
-    dispatch(getBooks());
+    dispatch(fetchBooks());
   }, []);
   if (status) {
     return (<div><h1>Loading...</h1></div>);

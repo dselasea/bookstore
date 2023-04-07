@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/wrcRoQ7axFGLY3A38Uya/books';
 
-export const getBooks = createAsyncThunk('books/getBooks', async () => {
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   try {
     const response = await axios.get(BASE_URL);
     return response.data;
@@ -57,8 +57,8 @@ export const booksSlice = createSlice({
   },
   extraReducers(builders) {
     builders
-      .addCase(getBooks.pending, (state) => ({ ...state, status: true }))
-      .addCase(getBooks.fulfilled, (state, action) => {
+      .addCase(fetchBooks.pending, (state) => ({ ...state, status: true }))
+      .addCase(fetchBooks.fulfilled, (state, action) => {
         const data = action.payload;
         const newBooks = [];
         for (const id in data) {
@@ -70,7 +70,7 @@ export const booksSlice = createSlice({
         }
         return { ...state, status: false, books: newBooks };
       })
-      .addCase(getBooks.rejected, (state) => ({ ...state, status: false, error: true }));
+      .addCase(fetchBooks.rejected, (state) => ({ ...state, status: false, error: true }));
   },
 });
 
