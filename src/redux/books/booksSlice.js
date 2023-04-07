@@ -19,7 +19,16 @@ export const postBooks = createAsyncThunk('books/postBooks', async (input) => {
   } catch (err) {
     return err.message;
   }
-})
+});
+
+export const deleteBooks = createAsyncThunk('books/deleteBooks', async (id) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/${id}`);
+    return response.data;
+  } catch (err) {
+    return err.message;
+  }
+});
 
 const initialState = {
   books: [],
@@ -46,14 +55,17 @@ export const booksSlice = createSlice({
     },
   },
   extraReducers(builders) {
-    builders.addCase(getBooks.pending, (state) => ({ ...state, status: true }))
+    builders
+      .addCase(getBooks.pending, (state) => ({ ...state, status: true }))
       .addCase(getBooks.fulfilled, (state, action) => {
         const data = action.payload;
         const newBooks = [];
         for (const id in data) {
-          const newData = data[id][0];
-          newData.item_id = id;
-          newBooks.push(newData);
+          if (id) {
+            const newData = data[id][0];
+            newData.item_id = id;
+            newBooks.push(newData);
+          }
         }
         return { ...state, status: false, books: newBooks };
       })

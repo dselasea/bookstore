@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, postBooks } from '../redux/books/booksSlice';
 import Button from './Button';
 
 const AddBook = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (title && author) {
+      const input = {
+        item_id: nanoid(), title, author, category: 'Action',
+      };
+      dispatch(postBooks(input));
       dispatch(addBook({
         item_id: nanoid(),
         title,
