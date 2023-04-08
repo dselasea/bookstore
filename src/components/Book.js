@@ -23,7 +23,13 @@ const Book = ({ book }) => {
         </div>
       </div>
       <div className="book-status">
-        completed
+        <div className="status-circle">
+          <div className="circle" />
+          <div className="status-content">
+            <h4>0%</h4>
+            <p>Completed</p>
+          </div>
+        </div>
       </div>
       <div className="book-progress">
         <h4>CURRENT CHAPTER</h4>

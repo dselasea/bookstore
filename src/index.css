@@ -129,7 +129,8 @@ nav ul li a {
   color: var(--book-title);
 }
 
-.book .btn-update {
+.book .btn-update,
+.categories button {
   padding: 0.8rem 1rem;
   background: var(--blue);
   border: none;
@@ -138,6 +139,12 @@ nav ul li a {
 }
 
 /* End Of Book Component */
+
+/* Categories */
+.categories {
+  padding: 2rem;
+}
+/* End of Categories */
 
 /* Book form */
 .form-container {
@@ -182,7 +189,48 @@ form button {
 
 /* End of Book form */
 
-@media screen and (min-width: 768px) {
+/* Reading status */
+.book-status {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border-right: 2px solid var(--border);
+  flex-grow: 1;
+}
+.status-circle {
+  display: flex;
+  gap: 1rem;
+}
+.status-circle .circle {
+  height: 80px;
+  width: 80px;
+  border: 5px solid var(--border);
+  border-radius: 100%;
+}
+
+.status-circle .status-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-status h4 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+.book-status p {
+  color: var(--book-title)
+}
+/* End of Reading status */
+
+/* Status Loading */
+.status-loading {
+  padding: 2rem;
+}
+/* End of Status Loading */
+
+@media screen and (min-width: 1050px) {
   .container {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
@@ -241,6 +289,10 @@ form button {
     border-left: 2px solid var(--pale-grey);
   }
 
+  .book .book-progress {
+    margin: 3rem;
+  }
+
   .book .book-progress h4 {
     font-size: 1rem;
     font-weight: lighter;
@@ -251,6 +303,23 @@ form button {
   }
 
   /* End ofBook component desktop */
+
+  /* Categories */
+.categories {
+  padding: 5rem;
+}
+/* End of Categories */
+
+/* Reading status */
+.book-status {
+  margin: 3rem;
+  padding-right: 4rem;
+}
+
+.status-circle .status-content {
+  flex-direction: column;
+}
+/* End of Reading status */
 
   /* form component */
   .form-container {
@@ -263,5 +332,11 @@ form button {
   }
 
   /* endform component */
+
+  /* Status Loading */
+.status-loading {
+  padding: 5rem;
+}
+/* End of Status Loading */
 }
 
