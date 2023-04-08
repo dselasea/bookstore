@@ -33,9 +33,15 @@ const AddBook = () => {
     <div className="form-container">
       <h2>Add New Book</h2>
       <form onSubmit={handleFormSubmit}>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Add Book Title" />
-        <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Add Book Author" />
-        <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category" />
+        <div>
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Add Book Title" />
+        </div>
+        <div>
+          <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Add Book Author" />
+        </div>
+        <div>
+          <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category" />
+        </div>
         <Button />
       </form>
     </div>

@@ -13,7 +13,7 @@ const Navbar = () => (
       </ul>
     </div>
     <div>
-      <span><i className="fa-solid fa-user fa-lg" style={{ color: '#0290ff' }} /></span>
+      <span className="user-icon"><i className="fa-solid fa-user fa-lg" style={{ color: '#0290ff' }} /></span>
     </div>
   </nav>
 );
