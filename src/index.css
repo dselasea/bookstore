@@ -1,3 +1,13 @@
+:root {
+  --blue: rgb(2, 144, 255);
+  --background: #fafafa;
+  --black: #121212;
+  --border: #e8e8e8;
+  --book-title: #888;
+  --pale-grey: #f5f6fa;
+  --cool-blue: #4386bf;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +30,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--pale-grey);
 }
 
 ul li {
@@ -32,17 +43,311 @@ a {
 
 .container {
   margin: 2rem auto;
+  background-color: var(--background);
+  max-width: 1600px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+}
+
+/* Navigation */
+
+nav,
+.book .book-progress,
+.book-status,
+.status-circle,
+.status-circle .status-content {
+  display: flex;
+}
+
+nav {
+  gap: 0.5rem;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+nav h1 {
+  color: var(--blue);
+  font-size: 2rem;
+}
+
+nav ul li a {
+  color: var(--black);
+}
+
+.user-icon {
+  border: 2px solid var(--border);
+  padding: 0.7rem 0.8rem;
+  border-radius: 100%;
+}
+
+/* End of Navigation */
+
+/* Book Component */
+.book {
   padding: 2rem;
-  background: #e8e8e8;
-  max-width: 1400px;
+  border: 2px solid var(--pale-grey);
+  background: #fff;
+}
+
+.book .category {
+  font-size: 0.8rem;
+  font-weight: bolder;
+  color: var(--book-title);
+  margin-bottom: 0.5rem;
+}
+
+.book .title {
+  font-size: 1.8rem;
+}
+
+.book .author {
+  font-size: 1rem;
+  color: var(--cool-blue);
+}
+
+.book .book-btn {
+  border: none;
+  background: transparent;
+  color: var(--cool-blue);
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+.book .book-btn.btn-middle {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+}
+
+.book .book-progress {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-status h4 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+.book .book-progress h4 {
+  color: var(--book-title);
+}
+
+form button {
+  padding: 0.8rem 1rem;
+  color: #fff;
+  background: var(--blue);
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.book .btn-update,
+.categories button {
+  padding: 0.8rem 1rem;
+  background: var(--blue);
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* End Of Book Component */
+
+/* Categories */
+.categories {
+  padding: 2rem;
+}
+
+/* End of Categories */
+
+/* Book form */
+.form-container {
+  padding: 2rem;
+  padding-bottom: 12rem;
+}
+
+.form-container h2 {
+  border-top: 2px solid var(--border);
+  color: var(--book-title);
+  padding-top: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 form input {
   padding: 0.8rem 1rem;
-  margin-right: 0.8rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--border);
 }
 
-button {
-  padding: 0.8rem 1rem;
-  cursor: pointer;
+form div {
+  width: 100%;
+}
+
+/* End of Book form */
+
+/* Reading status */
+.book-status {
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.status-circle {
+  gap: 1rem;
+}
+
+.status-circle .circle {
+  height: 80px;
+  width: 80px;
+  border: 5px solid var(--border);
+  border-radius: 100%;
+}
+
+.status-circle .status-content {
+  flex-direction: column;
+}
+
+.book-status p {
+  color: var(--book-title);
+}
+
+/* End of Reading status */
+
+/* Status Loading */
+.status-loading {
+  padding: 2rem;
+}
+
+/* End of Status Loading */
+
+@media screen and (min-width: 1050px) {
+  .container {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  nav {
+    flex-direction: row;
+    padding: 1.5rem 5rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+  }
+
+  .nav-links {
+    flex-grow: 1;
+    padding-left: 2rem;
+    padding-top: 0.3rem;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  /* Book component desktop */
+  .book {
+    padding: 1.5rem 3rem;
+    margin: 1rem 5rem 1rem 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .book:first-child {
+    margin: 5rem 5rem 1rem 5rem;
+  }
+
+  .book .category {
+    font-size: 0.9rem;
+  }
+
+  .book .title {
+    font-size: 1.8rem;
+  }
+
+  .book .author {
+    margin-bottom: 1rem;
+  }
+
+  .book .book-btn.btn-middle {
+    border-right: 2px solid var(--pale-grey);
+    border-left: 2px solid var(--pale-grey);
+  }
+
+  .book .book-progress {
+    margin: 3rem;
+  }
+
+  .book .book-progress h4 {
+    font-size: 1rem;
+    font-weight: lighter;
+  }
+
+  .book .btn-update {
+    padding: 0.7rem 1.5rem;
+  }
+
+  /* End ofBook component desktop */
+
+  /* Categories */
+  .categories {
+    padding: 5rem;
+  }
+
+  /* End of Categories */
+
+  /* Reading status */
+  .book-status {
+    margin: 3rem;
+    padding-right: 4rem;
+    justify-content: end;
+    border-right: 2px solid var(--border);
+  }
+
+  .status-circle .status-content {
+    flex-direction: column;
+  }
+
+  /* End of Reading status */
+
+  /* form component */
+  .form-container {
+    margin: 1rem 3rem;
+  }
+
+  form {
+    grid-template-columns: 2fr 2fr 2fr 1fr;
+    gap: 1rem;
+  }
+
+  /* endform component */
+
+  /* Status Loading */
+  .status-loading {
+    padding: 5rem;
+  }
+
+  /* End of Status Loading */
 }
