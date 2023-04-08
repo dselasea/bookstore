@@ -47,11 +47,6 @@ a {
   max-width: 1600px;
 }
 
-form input {
-  padding: 0.8rem 1rem;
-  margin-right: 0.8rem;
-}
-
 button {
   cursor: pointer;
 }
@@ -136,6 +131,34 @@ nav ul li a {
   border-radius: 5px;
 }
 /* End Of Book Component */
+
+/* Book form */
+.form-container {
+  padding: 2rem;
+}
+
+.form-container h2 {
+  color: var(--book-title);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+}
+
+form button {
+  padding: 0.8rem 1rem;
+  color: #fff;
+  background: var(--blue);
+  border: none;
+  border-radius: 5px;
+}
+/* End of Book form */
 
 @media screen and (min-width: 768px) {
   .container {

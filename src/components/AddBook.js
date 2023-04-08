@@ -30,7 +30,7 @@ const AddBook = () => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Add New Book</h2>
       <form onSubmit={handleFormSubmit}>
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Add Book Title" />
