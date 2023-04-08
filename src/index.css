@@ -52,6 +52,10 @@ form input {
   margin-right: 0.8rem;
 }
 
+button {
+  cursor: pointer;
+}
+
 .btn {
   padding: 0.8rem 1rem;
   cursor: pointer;
@@ -107,8 +111,11 @@ nav ul li a {
   color: var(--cool-blue);
   font-size: 1rem;
   padding-top: 1rem;
-  padding-right: 1rem;
-  
+}
+
+.book .book-btn.btn-middle {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
 }
 
 .book .book-progress {
@@ -162,14 +169,17 @@ nav ul li a {
   /* Book component desktop */
   .book {
     padding: 1.5rem 3rem;
-    margin: 5rem;
+    margin: 1rem 5rem 1rem 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .book:first-child {
+    margin: 5rem 5rem 1rem 5rem;
   }
   
   .book .category {
     font-size: 0.9rem;
-    font-weight: bolder;
-    color: var(--book-title);
-    margin-bottom: 0.5rem;
   }
   
   .book .title {
@@ -177,36 +187,21 @@ nav ul li a {
   }
   
   .book .author {
-    font-size: 1rem;
-    color: var(--cool-blue);
+    margin-bottom: 1rem;
   }
-  
-  .book .book-btn {
-    border: none;
-    background: transparent;
-    color: var(--cool-blue);
-    font-size: 1rem;
-    padding-top: 1rem;
-    padding-right: 1rem;
-    
-  }
-  
-  .book .book-progress {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+
+  .book .book-btn.btn-middle {
+    border-right: 2px solid var(--pale-grey);
+    border-left: 2px solid var(--pale-grey);
   }
   
   .book .book-progress h4 {
-    color: var(--book-title);
+    font-size: 1rem;
+    font-weight: lighter;
   }
   
   .book .btn-update {
-    padding: 0.8rem 1rem;
-    background: var(--blue);
-    border: none;
-    color: #fff;
-    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
   }
   /* End ofBook component desktop */
 }
