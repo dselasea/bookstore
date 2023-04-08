@@ -58,8 +58,15 @@ button {
 
 /* Navigation */
 
-nav {
+nav,
+.book .book-progress,
+.book-status,
+.status-circle,
+.status-circle .status-content {
   display: flex;
+}
+
+nav {
   gap: 0.5rem;
   flex-direction: column;
   padding: 1.5rem 2rem;
@@ -120,13 +127,28 @@ nav ul li a {
 }
 
 .book .book-progress {
-  display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
+.book-status h4 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
 .book .book-progress h4 {
   color: var(--book-title);
+}
+
+form button {
+  padding: 0.8rem 1rem;
+  color: #fff;
+  background: var(--blue);
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .book .btn-update,
@@ -144,6 +166,7 @@ nav ul li a {
 .categories {
   padding: 2rem;
 }
+
 /* End of Categories */
 
 /* Book form */
@@ -177,29 +200,19 @@ form div {
   width: 100%;
 }
 
-form button {
-  padding: 0.8rem 1rem;
-  color: #fff;
-  background: var(--blue);
-  border: none;
-  border-radius: 5px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
 /* End of Book form */
 
 /* Reading status */
 .book-status {
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
 }
+
 .status-circle {
-  display: flex;
   gap: 1rem;
 }
+
 .status-circle .circle {
   height: 80px;
   width: 80px;
@@ -208,25 +221,20 @@ form button {
 }
 
 .status-circle .status-content {
-  display: flex;
   flex-direction: column;
 }
 
-.book-status h4 {
-  font-size: 2rem;
-  margin-top: 1rem;
-  font-weight: 400;
+.book-status p {
+  color: var(--book-title);
 }
 
-.book-status p {
-  color: var(--book-title)
-}
 /* End of Reading status */
 
 /* Status Loading */
 .status-loading {
   padding: 2rem;
 }
+
 /* End of Status Loading */
 
 @media screen and (min-width: 1050px) {
@@ -304,23 +312,25 @@ form button {
   /* End ofBook component desktop */
 
   /* Categories */
-.categories {
-  padding: 5rem;
-}
-/* End of Categories */
+  .categories {
+    padding: 5rem;
+  }
 
-/* Reading status */
-.book-status {
-  margin: 3rem;
-  padding-right: 4rem;
-  justify-content: end;
-  border-right: 2px solid var(--border);
-}
+  /* End of Categories */
 
-.status-circle .status-content {
-  flex-direction: column;
-}
-/* End of Reading status */
+  /* Reading status */
+  .book-status {
+    margin: 3rem;
+    padding-right: 4rem;
+    justify-content: end;
+    border-right: 2px solid var(--border);
+  }
+
+  .status-circle .status-content {
+    flex-direction: column;
+  }
+
+  /* End of Reading status */
 
   /* form component */
   .form-container {
@@ -335,9 +345,9 @@ form button {
   /* endform component */
 
   /* Status Loading */
-.status-loading {
-  padding: 5rem;
-}
-/* End of Status Loading */
-}
+  .status-loading {
+    padding: 5rem;
+  }
 
+  /* End of Status Loading */
+}
