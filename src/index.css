@@ -192,9 +192,8 @@ form button {
 /* Reading status */
 .book-status {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
-  border-right: 2px solid var(--border);
   flex-grow: 1;
 }
 .status-circle {
@@ -314,6 +313,8 @@ form button {
 .book-status {
   margin: 3rem;
   padding-right: 4rem;
+  justify-content: end;
+  border-right: 2px solid var(--border);
 }
 
 .status-circle .status-content {
