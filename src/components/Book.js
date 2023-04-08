@@ -11,11 +11,25 @@ const Book = ({ book }) => {
     dispatch(deleteBooks(id));
   };
   return (
-    <div>
-      <h1>{book.title}</h1>
-      <p>{book.author}</p>
-      <p>{book.category}</p>
-      <button type="button" onClick={() => deleteBook(book.item_id)}>Remove Book</button>
+    <div className="book">
+      <div className="book-info">
+        <p className="category">{book.category}</p>
+        <h1 className="title">{book.title}</h1>
+        <p className="author">{book.author}</p>
+        <div>
+          <button className="book-btn" type="button">Comments</button>
+          <button className="book-btn" type="button" onClick={() => deleteBook(book.item_id)}>Remove Book</button>
+          <button className="book-btn" type="button">Edit</button>
+        </div>
+      </div>
+      <div className="book-status">
+        completed
+      </div>
+      <div className="book-progress">
+        <h4>CURRENT CHAPTER</h4>
+        <p>Chapter 17</p>
+        <button type="button" className="btn-update">UPDATE PROGRESS</button>
+      </div>
     </div>
   );
 };
